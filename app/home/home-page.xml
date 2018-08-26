@@ -1,0 +1,11 @@
+<Page loaded="pageLoaded">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Home"></Label>
+    </ActionBar>
+
+    <StackLayout>
+        <Label id = "lblCounter" text="0"></Label>
+        <Button text="Tap Me!" tap="onTap" />
+    </StackLayout>
+</Page>

@@ -1,0 +1,7 @@
+{
+    "name": "My_frist_app",
+    "main": "app.js",
+    "android": {
+        "v8Flags": "--expose_gc"
+    }
+}
