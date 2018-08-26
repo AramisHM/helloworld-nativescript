@@ -7,5 +7,7 @@
     <StackLayout>
         <Label id = "lblCounter" text="0"></Label>
         <Button text="Tap Me!" tap="onTap" />
+        <Button text="Tap Me post!" tap="onTap2" />
+        <Button text="Tap Me!" tap="onTap" />
     </StackLayout>
 </Page>

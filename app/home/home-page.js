@@ -6,21 +6,34 @@ logic, and to set up your page’s data binding.
 
 var counter = 0;
 var lbl;
+const http = require("http");
 
 exports.pageLoaded = function(args) {
     var page = args.object;
     lbl = page.getViewById("lblCounter")
 }
+
 exports.onTap = function() {
 
     counter++;
     lbl.text = counter + "taps"
 }
-const HomeViewModel = require("./home-view-model");
+exports.onTap2 = function() {
 
-function onNavigatingTo(args) {
-    const page = args.object;
-    page.bindingContext = new HomeViewModel();
+    lbl.text =  "---";
+    
+    http.request({
+        url: "https://httpbin.org/post",
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        content: JSON.stringify({ firstname: "Nic", lastname: "Raboy" })
+    }).then(function(result) {
+        console.log(JSON.stringify(result));
+        lbl.text = JSON.stringify(result);
+    }, function(error) {
+        console.error(JSON.stringify(error));
+        lbl.text = JSON.stringify(error);
+    });
 }
 
-exports.onNavigatingTo = onNavigatingTo;
+
